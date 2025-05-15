@@ -1,23 +1,26 @@
+
 package org.example.model;
 
 public class Coke extends ProductForSale {
-    private String size;
+    private boolean isDiet;
 
-    public Coke(String type, double price, String description) {
+    public Coke(String type, double price, String description, boolean isDiet) {
         super(type, price, description);
-        this.size = "250ml";
+        this.isDiet = isDiet;
     }
 
-    public Coke(String type, double price, String description, String size) {
-        super(type, price, description);
-        this.size = size;
+    // Eklenen: 3 parametreli constructor (testler için)
+    public Coke(String type, int price, String description) {
+        this(type, (double) price, description, false);
+    }
+
+    public boolean isDiet() {
+        return isDiet;
     }
 
     @Override
     public void showDetails() {
-        System.out.println("Coke [type=" + getType() +
-                ", price=" + getPrice() +
-                ", description=" + getDescription() +
-                ", size=" + size + "]");
+        System.out.println("[Coke] Type: " + getType() + ", Price: " + getPrice() +
+                ", Description: " + getDescription() + ", Diet: " + (isDiet ? "Yes" : "No"));
     }
 }
