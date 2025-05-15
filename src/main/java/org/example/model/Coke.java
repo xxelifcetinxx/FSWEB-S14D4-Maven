@@ -1,20 +1,23 @@
 package org.example.model;
 
 public class Coke extends ProductForSale {
-    private  boolean isDiet;
+    private String size;
 
-    public Coke(String type, double price, String description, boolean isDiet) {
+    public Coke(String type, double price, String description) {
         super(type, price, description);
-        this.isDiet = isDiet;
+        this.size = "250ml";
     }
 
-    public boolean isDiet() {
-        return isDiet;
+    public Coke(String type, double price, String description, String size) {
+        super(type, price, description);
+        this.size = size;
     }
 
     @Override
     public void showDetails() {
-        System.out.println("[Coke] Type: " + getType() + ", Price: " + getPrice() +
-                ", Description: " + getDescription() + ", Diet: " + (isDiet ? "Yes" : "No"));
+        System.out.println("Coke [type=" + getType() +
+                ", price=" + getPrice() +
+                ", description=" + getDescription() +
+                ", size=" + size + "]");
     }
 }
