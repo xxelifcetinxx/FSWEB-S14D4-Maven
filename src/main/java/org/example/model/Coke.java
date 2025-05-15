@@ -1,7 +1,7 @@
 package org.example.model;
 
 public class Coke extends ProductForSale {
-    private boolean isDiet;
+    private  boolean isDiet;
 
     public Coke(String type, double price, String description, boolean isDiet) {
         super(type, price, description);
